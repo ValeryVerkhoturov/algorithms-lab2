@@ -52,7 +52,7 @@ public class AdjencyMatrix {
         if (adjencyMatrix.size() <= outGoing)
             return null;
 
-        // Value does not exists, because matrix y size with current x coordinate is smaller
+        // Value does not exist, because matrix y size with current x coordinate is smaller
         if (adjencyMatrix.get(outGoing).size() <= inComing)
             return null;
 

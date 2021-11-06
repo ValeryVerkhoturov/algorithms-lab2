@@ -45,7 +45,7 @@ public class AdjencyMatrix {
      *
      * @param outGoing x coordinate
      * @param inComing y coordinate
-     * @return value, if it exsists and null, if it does not exist
+     * @return weight value, if it exsists and null, if it does not exist
      */
     protected Integer get(int outGoing, int inComing){
         // Value does not exists, because matrix x size is smaller

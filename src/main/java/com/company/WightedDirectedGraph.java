@@ -7,20 +7,20 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class WightedDirectedGraph extends AdjencyMatrix{
 
-        /**
-         * Add weight in adjecy matrix.
-         *
-         * @param weight matrix value
-         * @param outGoing start vertex
-         * @param inComing finish vertex
-         */
-        public void addEdge(int weight, int outGoing, int inComing){
+    /**
+     * Add weight in {@link AdjencyMatrix}.
+     *
+     * @param weight value on edge
+     * @param outGoing start vertex
+     * @param inComing finish vertex
+     */
+    public void addEdge(int weight, int outGoing, int inComing){
         add(weight, outGoing, inComing);
     }
 
     /**
-     * @param inComing start vertex
-     * @param outGoing finish vertex
+     * @param outGoing start vertex
+     * @param inComing finish vertex
      * @return weight of edge
      */
     public Integer getEdge(int outGoing, int inComing){
@@ -28,9 +28,10 @@ public class WightedDirectedGraph extends AdjencyMatrix{
     }
 
     /**
-     * @return max vertex number
+     * @return {@link AdjencyMatrix} size
      */
-    public int maxVertexValue(){
-        return getVertexes().stream().mapToInt(v -> v).max().orElseThrow();
+    public int matrixSize(){
+        return size();
     }
+
 }

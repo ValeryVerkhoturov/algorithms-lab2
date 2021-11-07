@@ -4,14 +4,14 @@ public class Main {
 
     public static void main(String[] args) {
         WightedDirectedGraph graph = WightedDirectedGraph.builder().build();
-        graph.addEdge(40, 1, 4);
-        graph.addEdge(30, 2, 3);
-        graph.addEdge(20, 3, 2);
-        graph.addEdge(10, 6, 1);
-        System.out.println(graph);
-        System.out.println(graph.getEdge(3, 2));
-        System.out.println(graph.getEdge(5, 0));
-        System.out.println(graph.maxVertexValue());
 
+        graph.addEdge(1, 5, 1);
+        graph.addEdge(2, 1, 3);
+        graph.addEdge(3, 1, 2);
+        graph.addEdge(4, 3, 4);
+        graph.addEdge(5, 3, 2);
+        graph.addEdge(6, 3, 5);
+        graph.addEdge(7, 5, 2);
+        Search.breadthFirstSearch(graph, 1, 4);
     }
 }

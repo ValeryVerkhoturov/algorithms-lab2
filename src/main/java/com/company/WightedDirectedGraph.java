@@ -34,4 +34,11 @@ public class WightedDirectedGraph extends AdjencyMatrix{
         return size();
     }
 
+    /**
+     * @return side of squared {@link AdjencyMatrix}
+     */
+    public int matrixSideSize(){
+        return sideSize();
+    }
+
 }

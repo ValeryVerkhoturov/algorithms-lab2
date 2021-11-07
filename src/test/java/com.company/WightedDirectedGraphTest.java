@@ -50,8 +50,8 @@ public class WightedDirectedGraphTest extends Assert {
         assertEquals(graph.getNeighbors(0), Set.of());
         assertEquals(graph.getNeighbors(1), Set.of(3, 2));
         assertEquals(graph.getNeighbors(2), Set.of());
-        assertEquals(graph.getNeighbors(3), Set.of(4, 5, 6));
+        assertEquals(graph.getNeighbors(3), Set.of(5, 2, 4));
         assertEquals(graph.getNeighbors(4), Set.of());
-        assertEquals(graph.getNeighbors(5), Set.of(1, 7));
+        assertEquals(graph.getNeighbors(5), Set.of(1, 2));
     }
 }

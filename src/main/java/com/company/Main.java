@@ -12,6 +12,6 @@ public class Main {
         graph.addEdge(5, 3, 2);
         graph.addEdge(6, 3, 5);
         graph.addEdge(7, 5, 2);
-        Search.breadthFirstSearch(graph, 1, 4);
+        System.out.println(Search.breadthFirstSearch(graph, 5, 4));
     }
 }

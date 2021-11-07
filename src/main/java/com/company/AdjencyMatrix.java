@@ -1,16 +1,17 @@
 package com.company;
 
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
-import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.IntStream;
 
-@ToString
+@Data
 @SuperBuilder
 public class AdjencyMatrix {
 
@@ -48,15 +49,13 @@ public class AdjencyMatrix {
      *
      * @param outGoing vertex (first index of {@link #adjencyMatrix})
      * @param inComing vertex (second index of {@link #adjencyMatrix})
-     * @return weight value, if it exsists or null, if it does not exist
+     * @return weight value, if it exsists
+     *      or null, if it does not exist and not over existing
+     *      maximum outgoing vertex and maximum incoming vertex
+     * @throws IndexOutOfBoundsException if the vertex is over existing vertexes
      */
     protected Integer get(int outGoing, int inComing){
-        try {
-            return adjencyMatrix.get(outGoing).get(inComing);
-        }
-        catch (IndexOutOfBoundsException e){
-            return null;
-        }
+        return adjencyMatrix.get(outGoing).get(inComing);
     }
 
     /**
@@ -64,7 +63,12 @@ public class AdjencyMatrix {
      * @return vertexes, outGoing vertex is directed to
      */
     public Set<Integer> getNeighbors(int outGoing){
-        return adjencyMatrix.get(outGoing).stream().filter(Objects::nonNull).collect(Collectors.toSet());
+        Set<Integer> output = new LinkedHashSet<>();
+        IntStream.range(0, adjencyMatrix.get(outGoing).size()).forEach(i -> {
+            if (adjencyMatrix.get(outGoing).get(i) != null)
+                output.add(i);
+        });
+        return output;
     }
 
     /**
@@ -84,9 +88,16 @@ public class AdjencyMatrix {
     }
 
     /**
-     * @return max index of {@link #adjencyMatrix} + 1
+     * @return size of {@link #adjencyMatrix}
      */
     protected int size(){
+        return (int) Math.pow(sideSize(), 2);
+    }
+
+    /**
+     * @return maximum size of sides in {@link #adjencyMatrix}
+     */
+    protected int sideSize(){
         return getVertexes().stream().mapToInt(v -> v).max().orElseThrow() + 1;
     }
 }

@@ -3,7 +3,6 @@ package com.company;
 import lombok.experimental.UtilityClass;
 
 import java.util.*;
-import java.util.stream.IntStream;
 
 @UtilityClass
 public class Search {

@@ -2,7 +2,6 @@ package com.company;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
 import java.util.*;
@@ -18,7 +17,6 @@ public class AdjencyMatrix {
      * First index - outgoing vertex.<br>
      * Second index - incoming vertex.
      */
-    @Getter
     @Builder.Default
     private final List<List<Integer>> adjencyMatrix = new ArrayList<>();
 

@@ -49,6 +49,9 @@ public class WightedDirectedGraphTest extends Assert {
     public void matrixSideSize(){
         int referenceMatrixSideSize = 6;
         assertEquals(referenceMatrixSideSize, graph.matrixSideSize());
+
+        WightedDirectedGraph graph = WightedDirectedGraph.builder().build();
+        assertEquals(0, graph.matrixSideSize());
     }
 
     @Test

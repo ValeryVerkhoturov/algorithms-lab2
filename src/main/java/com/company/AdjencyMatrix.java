@@ -90,9 +90,10 @@ public class AdjencyMatrix {
     }
 
     /**
-     * @return maximum size of sides in {@link #adjencyMatrix}
+     * @return side size in {@link #adjencyMatrix} or 0, if matrix is empty
      */
     protected int sideSize(){
-        return getVertexes().stream().mapToInt(v -> v).max().orElseThrow() + 1;
+        Integer countVertexes = getVertexes().stream().filter(Objects::nonNull).max(Comparator.comparing(v -> v)).orElse(null);
+        return (Objects.isNull(countVertexes)) ? 0 : countVertexes + 1;
     }
 }

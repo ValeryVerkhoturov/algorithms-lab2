@@ -28,14 +28,15 @@ public class WightedDirectedGraph extends AdjencyMatrix{
     }
 
     /**
-     * @return {@link AdjencyMatrix} size
+     * @return size of square {@link AdjencyMatrix}
      */
     public int matrixSize(){
         return size();
     }
 
     /**
-     * @return side of squared {@link AdjencyMatrix}
+     * Count from zero to max vertex in {@link AdjencyMatrix}
+     * @return max index + 1 from {@link AdjencyMatrix}
      */
     public int matrixSideSize(){
         return sideSize();

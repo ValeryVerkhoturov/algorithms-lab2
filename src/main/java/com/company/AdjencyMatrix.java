@@ -71,7 +71,7 @@ public class AdjencyMatrix {
     /**
      * @return vertexes in {@link #adjencyMatrix}, who is connected with other vertexes
      */
-    public int[] getVertexes(){
+    public Set<Integer> getVertexes(){
         Set<Integer> vertexes = new LinkedHashSet<>();
         IntStream.range(0, adjencyMatrix.size()).forEach(x -> {
             if (adjencyMatrix.get(x).size() != 0)
@@ -81,14 +81,9 @@ public class AdjencyMatrix {
                     vertexes.add(y);
             });
         });
-        return vertexes.stream().mapToInt(v -> v).toArray();
+        return vertexes;
     }
 
-    public int[] getVertexes(int exclude){
-        var set = new HashSet<>(Set.of(getVertexes()));
-        set.remove((Integer)exclude);
-        return Arrays.stream(set.toArray()).mapToInt(i -> (int) i).toArray();
-    }
     /**
      * @return size of {@link #adjencyMatrix}
      */
@@ -100,6 +95,6 @@ public class AdjencyMatrix {
      * @return maximum size of sides in {@link #adjencyMatrix}
      */
     protected int sideSize(){
-        return Arrays.stream(getVertexes()).max().orElseThrow() + 1;
+        return getVertexes().stream().mapToInt(v -> v).max().orElseThrow() + 1;
     }
 }

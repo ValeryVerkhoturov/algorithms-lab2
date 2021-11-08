@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Set;
+
 public class SearchTest extends Assert {
     private final WightedDirectedGraph graph = WightedDirectedGraph.builder().build();
 
@@ -19,19 +21,20 @@ public class SearchTest extends Assert {
     }
 
     @Test
-    public void breadthFirstSearch(){
-        assertEquals(1, Search.breadthFirstSearch(graph,1,2));
-        assertEquals(3, Search.breadthFirstSearch(graph,3,2));
-        assertEquals(1, Search.breadthFirstSearch(graph,4,2));
-        assertEquals(6, Search.breadthFirstSearch(graph,5,2));
+    public void getNeighbours(){
+        assertEquals(Set.of(2), graph.getNeighbors(1));
+        assertEquals(Set.of(3), graph.getNeighbors(2));
+        assertEquals(Set.of(4, 5), graph.getNeighbors(3));
+        assertEquals(Set.of(2, 3), graph.getNeighbors(4));
+        assertEquals(Set.of(4), graph.getNeighbors(5));
     }
 
     @Test
     public void vertexEccentricity(){
-        assertEquals(0, Search.vertexEccentricity(graph, 1));
-        assertEquals(6, Search.vertexEccentricity(graph, 2));
-        assertEquals(8, Search.vertexEccentricity(graph, 3));
-        assertEquals(5, Search.vertexEccentricity(graph, 4));
-        assertEquals(7, Search.vertexEccentricity(graph, 5));
+        assertNull(Search.vertexEccentricity(graph, 1));
+        assertEquals((Integer) 6, Search.vertexEccentricity(graph, 2));
+        assertEquals((Integer) 8, Search.vertexEccentricity(graph, 3));
+        assertEquals((Integer) 5, Search.vertexEccentricity(graph, 4));
+        assertEquals((Integer) 7, Search.vertexEccentricity(graph, 5));
     }
 }

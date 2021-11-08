@@ -63,6 +63,6 @@ public class WightedDirectedGraphTest extends Assert {
 
     @Test
     public void getVertexes(){
-        assertArrayEquals(graph.getVertexes(), new int[]{1, 2, 3, 4, 5});
+        assertEquals(graph.getVertexes(), Set.of(1, 2, 3, 4, 5));
     }
 }

@@ -32,9 +32,14 @@ public class SearchTest extends Assert {
     @Test
     public void vertexEccentricity(){
         assertNull(Search.vertexEccentricity(graph, 1));
-        assertEquals((Integer) 6, Search.vertexEccentricity(graph, 2));
-        assertEquals((Integer) 8, Search.vertexEccentricity(graph, 3));
-        assertEquals((Integer) 5, Search.vertexEccentricity(graph, 4));
-        assertEquals((Integer) 7, Search.vertexEccentricity(graph, 5));
+        assertEquals(6, (int) Search.vertexEccentricity(graph, 2));
+        assertEquals(8, (int) Search.vertexEccentricity(graph, 3));
+        assertEquals(5, (int) Search.vertexEccentricity(graph, 4));
+        assertEquals(7, (int) Search.vertexEccentricity(graph, 5));
+    }
+
+    @Test
+    public void graphEccentricity(){
+        assertEquals(5, (int)Search.graphEccentricity(graph));
     }
 }

@@ -2,7 +2,10 @@ package com.company;
 
 import lombok.experimental.UtilityClass;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Comparator;
+import java.util.Objects;
+import java.util.Queue;
 import java.util.stream.IntStream;
 
 @UtilityClass
@@ -28,6 +31,10 @@ public class Search {
 
     public Integer vertexEccentricity(WightedDirectedGraph graph, Integer destination){
         return graph.getVertexes().stream().map(source -> breadthFirstSearch(graph, source, destination)).filter(Objects::nonNull).filter(v -> v != 0).max(Comparator.comparing(v -> v)).orElse(null);
+    }
+
+    public Integer graphEccentricity(WightedDirectedGraph graph) {
+        return graph.getVertexes().stream().map(v -> vertexEccentricity(graph, v)).filter( Objects::nonNull).min(Comparator.comparing(v -> v)).orElse(null);
     }
 }
 

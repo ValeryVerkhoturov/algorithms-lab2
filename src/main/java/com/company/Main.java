@@ -12,6 +12,7 @@ public class Main {
         graph.addEdge(1, 4, 2);
         graph.addEdge(4, 3, 5);
         graph.addEdge(5, 5, 4);
-        System.out.println(Search.vertexEccentricity(graph, 1));
+
+        System.out.println(Search.graphEccentricity(graph));
     }
 }

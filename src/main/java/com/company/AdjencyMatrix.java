@@ -82,6 +82,15 @@ public class AdjencyMatrix {
         return vertexes;
     }
 
+    protected void delete(int outGoing, int inComing){
+        adjencyMatrix.get(outGoing).set(inComing, null);
+        for (int i = adjencyMatrix.get(outGoing).size() - 1; i >= 0  ; i--) {
+            if (Objects.nonNull(adjencyMatrix.get(outGoing).get(i)))
+                return;
+            adjencyMatrix.get(outGoing).remove(i);
+        }
+    }
+
     /**
      * @return size of {@link #adjencyMatrix}
      */

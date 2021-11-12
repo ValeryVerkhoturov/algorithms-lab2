@@ -27,6 +27,10 @@ public class WightedDirectedGraph extends AdjencyMatrix{
         return get(outGoing, inComing);
     }
 
+    public void deleteEdge(int outGoing, int inComing){
+        delete(outGoing, inComing);
+    }
+
     /**
      * @return size of square {@link AdjencyMatrix}
      */
@@ -41,5 +45,4 @@ public class WightedDirectedGraph extends AdjencyMatrix{
     public int matrixSideSize(){
         return sideSize();
     }
-
 }

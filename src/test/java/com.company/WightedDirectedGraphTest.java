@@ -1,4 +1,3 @@
-
 package com.company;
 
 import org.junit.Assert;
@@ -67,5 +66,26 @@ public class WightedDirectedGraphTest extends Assert {
     @Test
     public void getVertexes(){
         assertEquals(Set.of(1, 2, 3, 4, 5), graph.getVertexes());
+    }
+
+    @Test
+    public void deleteEdge(){
+        WightedDirectedGraph tempGraph = WightedDirectedGraph.builder().build();
+        tempGraph.addEdge(1, 5, 1);
+        tempGraph.addEdge(2, 1, 3);
+        tempGraph.addEdge(3, 1, 2);
+        tempGraph.addEdge(4, 3, 4);
+        tempGraph.addEdge(5, 3, 2);
+        tempGraph.addEdge(6, 3, 5);
+        tempGraph.addEdge(7, 5, 2);
+        tempGraph.deleteEdge(5, 1);
+        tempGraph.deleteEdge(1, 3);
+        tempGraph.deleteEdge(1, 2);
+        tempGraph.deleteEdge(3, 4);
+        tempGraph.deleteEdge(3, 2);
+        tempGraph.deleteEdge(3, 5);
+        tempGraph.deleteEdge(5, 2);
+        Integer[][] reference = {{}, {}, {}, {}, {}, {}};
+        assertArrayEquals(reference, tempGraph.getAdjencyMatrix().stream().map(List::toArray).toArray());
     }
 }

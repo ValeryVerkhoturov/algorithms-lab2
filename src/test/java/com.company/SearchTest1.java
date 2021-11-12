@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.util.Set;
 
-public class SearchTest extends Assert {
+public class SearchTest1 extends Assert {
     private final WightedDirectedGraph graph = WightedDirectedGraph.builder().build();
 
     @Before

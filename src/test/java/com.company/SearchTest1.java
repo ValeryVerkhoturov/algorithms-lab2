@@ -40,6 +40,6 @@ public class SearchTest1 extends Assert {
 
     @Test
     public void graphEccentricity(){
-        assertEquals(5, (int)Search.graphEccentricity(graph));
+        assertEquals(5, (int) Search.graphEccentricity(graph));
     }
 }
